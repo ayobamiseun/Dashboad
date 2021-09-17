@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      function showResult(str) {
+        if (str.length==0) {
+          document.getElementById("livesearch").innerHTML="";
+          document.getElementById("livesearch").style.border="0px";
+          return;
+        }
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+          if (this.readyState==4 && this.status==200) {
+            document.getElementById("livesearch").innerHTML=this.responseText;
+            document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+          }
+        }
+        xmlhttp.open("GET","livesearch.php?q="+str,true);
+        xmlhttp.send();
+      }
+      </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/91ec398eb7.js"></script>
+  </head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+  body{
+    color:#1d3557;
+    background-color: #f2f2f2;
+    color: #010952;
+    
+  }
+    
+      .table td, .table th {
+        padding: .75rem;
+        vertical-align: top;
+         border-top:none !important ;
+    }
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: none !important ; 
+        
+    }
+    .table {
+        margin-bottom: none !important;
+    }
+    input {
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color: grey;
+        margin-bottom: 20px;
+        background-color: #dee0f7;
+        width: 100%;
+      }
+      input:focus {
+        border-color: green
+      }
+      .row {
+          background-color: #e7e9fa!important;
+      }
+      .has-search .form-control {
+        padding-left: 2.375rem;
+    }
+    .has-search .form-control-feedback {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      width: 2.375rem;
+      height: 2.375rem;
+      line-height: 2.375rem;
+      text-align: center;
+      pointer-events: none;
+      color: #aaa;
+  }
+      
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);" >
+        <a class="navbar-brand" href="#"><img style="height:30px;"src="assets/img/ham.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Time <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Expense</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Reports</a>
+              </li>
+          </ul>
+          
+            <form class="form-inline my- my-lg-0" style="margin: 10px;">
+                <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                <div class="form-group has-search">
+                  <!-- <span class="fa fa-search form-control-feedback"></span> -->
+                  <input type="text" class="form-control" placeholder="Search" onkeyup="showResult(this.value)">
+                  <div id="livesearch"></div>
+                </div>
+                
+              </form>
+              <select name="" id="">
+               
+                <option value="">Drew</option>
+                <option value="">2</option>
+            </select></button>
+              
+            <!-- <li class="nav-item dropdown my-2 my-lg-0 ">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Drew
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li> -->
+          
+          
+          
+        </div>
+      </nav>
+        
+
+   <section class="body container-fluid expand-lg" style="background: " >
+       <div class="row bg-light" style="box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149); ">
+           <div class="col-3.7">
+            <table class="table table-borderless">
+                <thead>
+                  <tr style="border: none;">
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col"  style="font-size: small; font-weight:900;">Day</th>
+                    <th scope="col"  style="font-size: small;">Goodmorning, Drew!</th>
+                    <!-- <th scope="col">Handle</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"  style="font-size: small;">week</th>
+                    <td  style="font-size: small;font-weight:900;">Sunday, Jan 12</td>
+                    
+                    
+                  </tr>
+                  
+                </tbody>
+              </table>
+           </div>
+           <div class="col-4.8" style="margin: auto;">
+            <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col" style="font-size: small;">Hours Tracked</th>
+                    <th scope="col"  style="font-size: small;">Billable Amount</th>
+                    <th scope="col"  style="font-size: small;">Uninvoiced Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">8.00</th>
+                    <td>$36,000</td>
+                    <td>29,000</td>
+                    
+                  </tr>
+                  
+                </tbody>
+              </table>
+           </div>
+           <div class="col-3.5">
+            <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col" ><i class="fa fa-pie-chart fa-3x" aria-hidden="true"></i></th>
+                    <th scope="col"><i class="fa fa-line-chart fa-3x" aria-hidden="true"></i></th>
+                    <th scope="col">Last 2 Days <br>15.00</th>
+                  </tr>
+                </thead>
+               
+              </table>
+           </div>
+       </div>
+       
+       </div>
+       <div class="row bg-light" style="display:flex;box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149); ">
+        <div class="col-3.7">
+            <div style="width:80%;">
+                <div style="background-color: #dee0f7;width:85%; margin:20px; height:30px;">
+                    <p style=" font-size:0.7rem; padding:4px;">NEW TIME ENTRY</p>
+                </div>
+                <div style="margin: 20px;" style="width:100%;">
+                    <thead>
+                        <tr>
+                          <!-- <th scope="col">#</th> -->
+                          <th scope="col" style="font-size: small;margin-right: 50px;">Color Tag</th>
+                          <th scope="col"  style="font-size: small; "><img src="assets/img/blue.png" alt="" style="height: 20px;padding:3px; margin-left:20px;"><img src="assets/img/download (1).png" alt=""style="height: 20px;padding:3px;"><img src="assets/img/download.png" alt=""style="height: 20px;padding:3px;"><img src="assets/img/pie.jpeg" alt=""style="height: 20px;padding:3px;"></th>
+                          
+                        </tr>
+                      </thead>
+                </div>
+                <div style="margin: 20px;">
+                    <input type="text" placeholder="Add Project" style="margin-bottom: 20px;"><br>
+                    <input type="text" placeholder="Add Task"><br>
+                    <input type="text" placeholder="Add Note">
+                </div>
+                <div style="display:inline-block;margin: 20px;">
+                   <p> - 1.00  + 
+                    <button style="background-color: #fff; border:none; padding: 10px; margin:5px; box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);">Start Timer</button></p>
+                </div>
+                <div style="width: 90%; margin: 20px; height:300px; background:#dee0f7;  ">
+                  <div style="border-bottom: 2px solid #222331; width:80%; margin:20px;">
+                    <h4 style="font-size: 20px;">Try Up Your Time Tracking</h4><br>
+                    <p>Did you know the app can help you rember to track time?</p>
+                    <p style="">Stay on top of your timesheets, even when you forget!</p>
+                  </div>
+                  <div style="margin: 20px;">
+                    <button style="padding: 10px; margin:5px;box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149); border:none;">Try Reminders</button><button  style="padding: 10px;margin:5px; border:none; background-color:#505269; box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(168, 172, 175, 0.149);">Remind me Later</button>
+                    <p>No thanks, Never show this again.</p>
+                  </div>
+                    
+                </div>
+    
+               </div>
+        </div>
+        <div class="col-4.8" style="margin:  ;">
+            <div class="col-5" style=" margin-top:60px;text-align: center;
+            display: block;">
+                <img style="height: 350px;" src="assets/img/21249.svg" alt="">
+         </div>
+        </div>
+        <div class="col-3.5   ml-auto" style="margin:;">
+          <div style="background-color: #dee0f7;width:90%; margin-top:20px; height:30px;">
+            <p style=" font-size:0.7rem; padding:4px; padding-bottom:30px;">Task</p>
+        </div>
+         <table class="table table-borderless">
+           <div style="margin:20px;padding-bottom: 0px;">
+            <thead>
+              <tr >
+                <!-- <th scope="col">#</th> -->
+                <th scope="col" style="border-left: 5px solid rgb(149, 201, 236); height:50px;">Active</th>
+                <th scope="col"></th>
+                <th scope="col">- 1.00 +</th>
+              </tr>
+            </thead>
+           </div>
+           <div style="margin:20px;">
+            <thead >
+              <tr style="border-left: 5px solid rgb(3, 56, 92); height:50px; padding-bottom: 30px;">
+                <!-- <th scope="col">#</th> -->
+                <th scope="col"  style="">Active</th>
+                <th scope="col"></th>
+                <th scope="col">- 1.00 +</th>
+              </tr>
+            </thead>
+           </div>
+             <div style="margin:20px;">
+              <tbody>
+                <tr>
+                  <th scope="row" style="border-left: 5px solid rgb(247, 6, 175); height:50px;">Tea Break</th>
+                  <td></td>
+                  <td>- 0.30 +</td>
+                  
+                </tr>
+                
+              </tbody>
+
+             </div>
+             <div style="margin:20px; padding-bottom: ; height:0px;">
+              <thead>
+                <tr>
+                  <!-- <th scope="col">#</th> -->
+                  <th scope="col" style="border-left: 5px solid rgb(245, 110, 227); height:50px;">Active</th>
+                  <th scope="col"></th>
+                  <th scope="col">- 1.00 +</th>
+                </tr>
+              </thead>
+             </div>
+             
+           
+           <div class="span12" style=";">
+             <div style="padding-top: 30px;">
+              <table class="table-condensed table-bordered table-striped" style="margin-top: 70px;">
+                <thead>
+                    <tr>
+                      <th colspan="7">
+                        <span class="btn-group">
+                            <a class="btn"><i class="icon-chevron-left"></i></a>
+                          <a class="btn active">February 2012</a>
+                          <a class="btn"><i class="icon-chevron-right"></i></a>
+                        </span>
+                      </th>
+                    </tr>
+                    <tr>
+                        <th>Su</th>
+                        <th>Mo</th>
+                        <th>Tu</th>
+                        <th>We</th>
+                        <th>Th</th>
+                        <th>Fr</th>
+                        <th>Sa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="muted">29</td>
+                        <td class="muted">30</td>
+                        <td class="muted">31</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td class="btn-primary"><strong>20</strong></td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td class="muted">1</td>
+                        <td class="muted">2</td>
+                        <td class="muted">3</td>
+                    </tr>
+                </tbody>
+            </table>
+             </div>
+           
+            </div>
+        </div>
+    </div>
+    
+   </section>
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
